@@ -7443,56 +7443,56 @@ img.footer-logo {
   font-size: .8rem;
 }
 
-#produtividade-icon {
+#card-5-1-icon {
   background: linear-gradient(to bottom right, #2DB85E, #4FCD7B);
 }
 
-#produtividade-span {
+#card-5-1-span {
   color: #277A4F;
   background-color: #D5EADA;
 }
 
-#absenteismo-icon {
+#card-5-2-icon {
   background: linear-gradient(to bottom right, #3C6DE6, #487DE9);
 }
 
-#absenteismo-span {
+#card-5-2-span {
   color: #3754D2;
   background-color: #D8DDF1;
 }
 
-#retencao-icon {
+#card-5-4-icon {
   background: linear-gradient(to bottom right, #A456E7, #B677EA);
 }
 
-#retencao-span {
+#card-5-4-span {
   color: #7721C1;
   background-color: #E4D5EC;
 }
 
-#conformidade-icon {
+#card-5-5-icon {
   background: linear-gradient(to bottom right, #F37623, #F68F41);
 }
 
-#conformidade-span {
+#card-5-5-span {
   color: #C64D0E;
   background-color: #EAD6C3;
 }
 
-#bemestar-icon {
+#card-5-6-icon {
   background: linear-gradient(to bottom right, #E54749, #EA6668);
 }
 
-#bemestar-span {
+#card-5-6-span {
   color: #B82021;
   background-color: #F1D0D2;
 }
 
-#custos-icon {
+#card-5-7-icon {
   background: linear-gradient(to bottom right, #22AE9F, #3EC9B3);
 }
 
-#custos-span {
+#card-5-7-span {
   color: #217A8D;
   background-color: #C9E9E0;
 }
@@ -7506,4 +7506,9 @@ img.footer-logo {
   margin-bottom: 4px;
   font-weight: 500;
   font-size: 1.1rem;
+}
+
+#sobre {
+  margin-top: 0;
+  padding-top: 0;
 }
