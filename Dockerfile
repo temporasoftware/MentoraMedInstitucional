@@ -6,7 +6,6 @@ WORKDIR /app
 
 # Copiar arquivos de dependências
 COPY package*.json ./
-COPY bun.lockb ./
 
 # Instalar TODAS as dependências
 RUN npm ci
