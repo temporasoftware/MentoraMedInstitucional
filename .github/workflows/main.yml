@@ -30,7 +30,6 @@ jobs:
       - name: Build da imagem Docker
         run: |
           docker build \
-            --target production \
             -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest .
       - name: Push da imagem
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest
