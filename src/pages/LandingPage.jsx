@@ -8,12 +8,13 @@ import ResponsabilidadeSection from '../components/responsabilidade/Responsabili
 import FAQSection from '../components/faq/FAQSection.jsx';
 import BenefitsSection from '../components/benefits/BenefitsSection.jsx';
 import FAQNR1Section from '../components/faqnr1/FAQNR1Section.jsx';
+import ContactSection from '../components/contact/ContactSection.jsx';
+import FooterSection from '../components/footer/FooterSection.jsx';
 
 function LandingPage() {
   return (
     <div id='page' className='page'>
       <PreloadSpinner />
-      <Header />
       <Hero />
       <AboutSection />
       <BrandsSection />
@@ -22,6 +23,7 @@ function LandingPage() {
       <FAQSection />
       <BenefitsSection />
       <FAQNR1Section />
+      <ContactSection />
     </div>
   )
 }
