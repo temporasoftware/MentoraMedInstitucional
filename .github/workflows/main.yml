@@ -39,9 +39,6 @@ jobs:
         run: |
           set -Eeuo pipefail
       
-          STACK_ID="8"
-          ENDPOINT_ID="24"
-      
           # Escreve o docker-compose literal em um arquivo local
           cat > compose.yml <<'YAML'
           version: '3.8'
@@ -112,7 +109,7 @@ jobs:
           PUT_CODE=$(curl -sS -w '%{http_code}' -o resp.json \
             -H "Authorization: Bearer $JWT" \
             -H "Content-Type: application/json" \
-            -X PUT "https://portainer.nileo.com.br/api/stacks/${STACK_ID}?endpointId=${ENDPOINT_ID}" \
+            -X PUT "https://portainer.nileo.com.br/api/stacks/8?endpointId=24 \
             --data-binary @body.json)
       
           echo "Update HTTP $PUT_CODE"
@@ -122,4 +119,4 @@ jobs:
             exit 1
           fi
       
-          echo "Stack ${STACK_ID} atualizado com sucesso."
+          echo "Stack 8 atualizado com sucesso."
