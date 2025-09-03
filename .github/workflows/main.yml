@@ -34,27 +34,37 @@ jobs:
       - name: Push da imagem
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest
 
-      - name: Redeploy (Portainer /stacks/:id PUT)
+      - name: Redeploy (Portainer /stacks/:id/git/redeploy)
+        shell: bash
         run: |
-          set -euo pipefail
+          set -Eeuo pipefail
       
           ENDPOINT_ID="24"
+          STACK_ID="8"
       
-          # Monta o JSON esperado pelo Portainer
           jq -n \
-            --arg content "${{ secrets.PORTAINER_COMPOSE_CONTENT }}" \
-            --argjson id 8 \
+            --arg ref "refs/heads/${{ github.ref_name }}" \
+            --arg user "${{ secrets.GIT_USERNAME }}" \
+            --arg pass "${{ secrets.GIT_TOKEN }}" \
             --argjson prune false \
             --argjson pull true \
             '{
-              id: $id,
-              StackFileContent: $content,
-              Env: [],
+              RepositoryReferenceName: $ref,
+              RepositoryAuthentication: true,
+              RepositoryUsername: $user,
+              RepositoryPassword: $pass,
               Prune: $prune,
               PullImage: $pull
-            }' \
-          | curl -fsS --retry 5 --retry-all-errors --max-time 60 \
-              -H "X-API-Key: ${{ secrets.PORTAINER_TOKEN }}" \
-              -H "Content-Type: application/json" \
-              -X PUT "https://portainer.nileo.com.br/api/stacks/8?endpointId=${ENDPOINT_ID}" \
-              --data-binary @-
+            }' > body.json
+      
+          HTTP_CODE=$(curl -sS -w '%{http_code}' -o resp.json \
+            -H "Content-Type: application/json" \
+            -H "X-API-Key: ${{ secrets.PORTAINER_TOKEN }}" \
+            -X PUT "https://portainer.nileo.com.br/api/stacks/${STACK_ID}/git/redeploy?endpointId=${ENDPOINT_ID}" \
+            --data-binary @body.json)
+      
+          echo "HTTP ${HTTP_CODE}"
+          if [ "${HTTP_CODE}" -ge 400 ]; then
+            cat resp.json
+            exit 1
+    fi
