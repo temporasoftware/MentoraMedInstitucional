@@ -60,7 +60,7 @@ jobs:
           HTTP_CODE=$(curl -sS -w '%{http_code}' -o resp.json \
             -H "Content-Type: application/json" \
             -H "X-API-Key: ${{ secrets.PORTAINER_TOKEN }}" \
-            -X PUT "https://portainer.nileo.com.br/api/stacks/${STACK_ID}/git/redeploy?endpointId=${ENDPOINT_ID}" \
+            -X PUT "https://portainer.nileo.com.br/api/stacks/24?endpointId=8" \
             --data-binary @body.json)
       
           echo "HTTP ${HTTP_CODE}"
