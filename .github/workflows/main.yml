@@ -38,14 +38,12 @@ jobs:
         run: |
           set -euo pipefail
       
-          # Vars vindas do seu workflow/env
-          STACK_ID="8"
           ENDPOINT_ID="24"
       
           # Monta o JSON esperado pelo Portainer
           jq -n \
             --arg content "${{ secrets.PORTAINER_COMPOSE_CONTENT }}" \
-            --argjson id "$STACK_ID" \
+            --argjson id 8 \
             --argjson prune false \
             --argjson pull true \
             '{
