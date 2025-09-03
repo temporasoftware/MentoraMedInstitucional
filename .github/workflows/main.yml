@@ -34,32 +34,58 @@ jobs:
       - name: Push da imagem
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest
 
-      - name: Redeploy (Portainer /stacks/:id/git/redeploy)
+      - name: Redeploy (Portainer /stacks/:id PUT)
         shell: bash
         run: |
           set -Eeuo pipefail
       
-          ENDPOINT_ID="24"
           STACK_ID="8"
+          ENDPOINT_ID="24"
       
-          jq -n \
-            --arg content "${{ secrets.PORTAINER_COMPOSE_CONTENT }}" \
+          # Escreve o docker-compose literal em um arquivo local
+          cat > compose.yml <<'YAML'
+          version: '3.8'
+      
+          services:
+            mentoramed-root-site-production:
+              image: aureolopes/mentoramed-root-site-production:latest
+              container_name: mentoramed-root-site-production
+              restart: always
+              environment:
+                - VIRTUAL_HOST=mentoramed.com.br,www.mentoramed.com.br
+                - VIRTUAL_PORT=80
+                - LETSENCRYPT_HOST=mentoramed.com.br,www.mentoramed.com.br
+                - LETSENCRYPT_EMAIL=aureo@hotmail.co.jp
+                - TZ=America/Sao_Paulo
+              expose:
+                - "80"                      # <- expõe 80 para o proxy
+              networks:
+                - web
+              healthcheck:
+                test: ["CMD-SHELL", "wget -qO- http://localhost/ || exit 1"]
+                interval: 30s
+                timeout: 5s
+                retries: 3
+      
+          networks:
+            web:
+              external: true
+          YAML
+      
+          # Monta o corpo JSON usando o arquivo como string crua
+          jq -n --rawfile content compose.yml \
+            --argjson prune false \
+            --argjson pull true \
             '{
-              id: 24,
               StackFileContent: $content,
               Env: [],
-              Prune: true,
-              PullImage: false
+              Prune: $prune,
+              PullImage: $pull
             }' > body.json
       
-          HTTP_CODE=$(curl -sS -w '%{http_code}' -o resp.json \
-            -H "Content-Type: application/json" \
+          # PUT no stack com API Key
+          curl -fsS --retry 5 --retry-all-errors --max-time 60 \
             -H "X-API-Key: ${{ secrets.PORTAINER_TOKEN }}" \
-            -X PUT "https://portainer.nileo.com.br/api/stacks/24?endpointId=8" \
-            --data-binary @body.json)
-      
-          echo "HTTP ${HTTP_CODE}"
-          if [ "${HTTP_CODE}" -ge 400 ]; then
-            cat resp.json
-            exit 1
-          fi
+            -H "Content-Type: application/json" \
+            -X PUT "https://portainer.nileo.com.br/api/stacks/${STACK_ID}?endpointId=${ENDPOINT_ID}" \
+            --data-binary @body.json
