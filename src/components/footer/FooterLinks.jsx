@@ -3,9 +3,11 @@ const FooterLinks = () => (
     <div className="footer-location">
       <h6 className="color--old-lace">Empresa</h6>
       <p>
-        <a>Sobre Nós</a><br />
-        <a>Nossa Equipe</a><br />
-        <a>Casos de Sucesso</a><br />
+        <a href="#quem-somos">Sobre Nós</a>
+        <br />
+        <a href="#faq-nr1">FAQ (perguntas frequentes)</a>
+        <br />
+        Curitiba/PR
       </p>
     </div>
   </div>
