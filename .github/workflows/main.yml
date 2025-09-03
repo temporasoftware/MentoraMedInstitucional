@@ -46,15 +46,12 @@ jobs:
             --arg ref "refs/heads/${{ github.ref_name }}" \
             --arg user "${{ secrets.GIT_USERNAME }}" \
             --arg pass "${{ secrets.GIT_TOKEN }}" \
-            --argjson prune false \
-            --argjson pull true \
             '{
-              RepositoryReferenceName: $ref,
-              RepositoryAuthentication: true,
-              RepositoryUsername: $user,
-              RepositoryPassword: $pass,
-              Prune: $prune,
-              PullImage: $pull
+              id: 24,
+              StackFileContent: $content,
+              Env: [],
+              Prune: true,
+              PullImage: false
             }' > body.json
       
           HTTP_CODE=$(curl -sS -w '%{http_code}' -o resp.json \
