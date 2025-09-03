@@ -83,9 +83,43 @@ jobs:
               PullImage: $pull
             }' > body.json
       
-          # PUT no stack com API Key
-          curl -fsS --retry 5 --retry-all-errors --max-time 60 \
-            -H "X-API-Key: ${{ secrets.PORTAINER_TOKEN }}" \
+          # 3) Autentica no Portainer para obter o JWT
+          AUTH_PAYLOAD=$(jq -n \
+            --arg u "${{ secrets.PORTAINER_USER }}" \
+            --arg p "${{ secrets.PORTAINER_PASS }}" \
+            '{username:$u, password:$p}')
+      
+          AUTH_CODE=$(curl -sS -w '%{http_code}' -o auth.json \
+            -H "Content-Type: application/json" \
+            -X POST "https://portainer.nileo.com.br/api/auth" \
+            --data "$AUTH_PAYLOAD")
+      
+          echo "Auth HTTP $AUTH_CODE"
+          if [ "$AUTH_CODE" -ge 400 ]; then
+            echo "Falha ao autenticar no Portainer:"
+            cat auth.json
+            exit 1
+          fi
+      
+          JWT=$(jq -r '.jwt // empty' auth.json)
+          if [ -z "$JWT" ]; then
+            echo "Resposta de auth não trouxe 'jwt':"
+            cat auth.json
+            exit 1
+          fi
+      
+          # 4) PUT no stack com o JWT
+          PUT_CODE=$(curl -sS -w '%{http_code}' -o resp.json \
+            -H "Authorization: Bearer $JWT" \
             -H "Content-Type: application/json" \
             -X PUT "https://portainer.nileo.com.br/api/stacks/${STACK_ID}?endpointId=${ENDPOINT_ID}" \
-            --data-binary @body.json
+            --data-binary @body.json)
+      
+          echo "Update HTTP $PUT_CODE"
+          if [ "$PUT_CODE" -ge 400 ]; then
+            echo "Erro ao atualizar o stack:"
+            cat resp.json
+            exit 1
+          fi
+      
+          echo "Stack ${STACK_ID} atualizado com sucesso."
