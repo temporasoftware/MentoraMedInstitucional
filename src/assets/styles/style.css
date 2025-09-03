@@ -7512,3 +7512,21 @@ img.footer-logo {
   margin-top: 0;
   padding-top: 0;
 }
+
+#politica-de-privacidade p,
+#politica-de-privacidade li,
+#termos-de-uso p,
+#termos-de-uso li {
+  color: #000000;
+}
+
+#termos-de-uso ul,
+#politica-de-privacidade ul {
+  list-style-type: disc;
+  margin-left: 60px;
+}
+
+#termos-de-uso a,
+#politica-de-privacidade a {
+  color: var(--bruswick-green);
+}

@@ -17,7 +17,7 @@ const FooterBottom = () => (
           </li>
           <li>
             <p className="fs-15">
-              <a href="terms.html">Termos de Uso</a>
+              <a href="#termos-de-uso">Termos de Uso</a>
             </p>
           </li>
         </ul>
