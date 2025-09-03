@@ -43,9 +43,7 @@ jobs:
           STACK_ID="8"
       
           jq -n \
-            --arg ref "refs/heads/${{ github.ref_name }}" \
-            --arg user "${{ secrets.GIT_USERNAME }}" \
-            --arg pass "${{ secrets.GIT_TOKEN }}" \
+            --arg content "${{ secrets.PORTAINER_COMPOSE_CONTENT }}" \
             '{
               id: 24,
               StackFileContent: $content,
