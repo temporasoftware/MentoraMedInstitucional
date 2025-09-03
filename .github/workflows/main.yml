@@ -67,4 +67,4 @@ jobs:
           if [ "${HTTP_CODE}" -ge 400 ]; then
             cat resp.json
             exit 1
-    fi
+          fi
