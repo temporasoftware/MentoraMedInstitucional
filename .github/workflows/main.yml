@@ -34,5 +34,29 @@ jobs:
       - name: Push da imagem
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE }}:latest
 
-      - name: Trigger Portainer Webhook
-        run: curl -X POST ${{ secrets.PORTAINER_WEBHOOK_URL }}
+      - name: Redeploy (Portainer /stacks/:id PUT)
+        run: |
+          set -euo pipefail
+      
+          # Vars vindas do seu workflow/env
+          STACK_ID="8"
+          ENDPOINT_ID="24"
+      
+          # Monta o JSON esperado pelo Portainer
+          jq -n \
+            --arg content "${{ secrets.PORTAINER_COMPOSE_CONTENT }}" \
+            --argjson id "$STACK_ID" \
+            --argjson prune false \
+            --argjson pull true \
+            '{
+              id: $id,
+              StackFileContent: $content,
+              Env: [],
+              Prune: $prune,
+              PullImage: $pull
+            }' \
+          | curl -fsS --retry 5 --retry-all-errors --max-time 60 \
+              -H "X-API-Key: ${{ secrets.PORTAINER_TOKEN }}" \
+              -H "Content-Type: application/json" \
+              -X PUT "https://portainer.nileo.com.br/api/stacks/${STACK_ID}?endpointId=${ENDPOINT_ID}" \
+              --data-binary @-
