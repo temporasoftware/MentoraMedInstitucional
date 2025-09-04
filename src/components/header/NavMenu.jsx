@@ -1,4 +1,4 @@
-import SocialLinks from './SocialLinks';
+import SocialLinks from "./SocialLinks";
 
 const NavMenu = () => (
   <nav className="wsmenu clearfix">
@@ -27,7 +27,11 @@ const NavMenu = () => (
         <a href="#nr-1">NR-1</a>
       </li>
 
-      <SocialLinks />
+      <li aria-haspopup="true" className="h-link">
+        <a href="#nr-1">Área do Colaborador</a>
+      </li>
+
+      {/* <SocialLinks /> */}
     </ul>
   </nav>
 );

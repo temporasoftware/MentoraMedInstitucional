@@ -7530,3 +7530,7 @@ img.footer-logo {
 #politica-de-privacidade a {
   color: var(--bruswick-green);
 }
+
+#header a {
+  margin: 0;
+}

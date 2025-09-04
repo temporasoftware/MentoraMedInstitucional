@@ -14362,9 +14362,7 @@
 
   /* HERO SLIDESHOW */
   .slideshow,
-  .slideshow .slides {
-    height: 460px;
-  }
+  .slideshow .slides {}
 
   .slider,
   .slider .slides {
