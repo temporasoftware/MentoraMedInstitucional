@@ -109,7 +109,7 @@ jobs:
           PUT_CODE=$(curl -sS -w '%{http_code}' -o resp.json \
             -H "Authorization: Bearer $JWT" \
             -H "Content-Type: application/json" \
-            -X PUT "https://portainer.nileo.com.br/api/stacks/8?endpointId=24 \
+            -X PUT "https://portainer.nileo.com.br/api/stacks/8?endpointId=24" \
             --data-binary @body.json)
       
           echo "Update HTTP $PUT_CODE"
