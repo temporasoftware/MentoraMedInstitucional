@@ -127,8 +127,8 @@ const PrivacyPolicy = () => (
             <p>
               Em caso de dúvidas sobre esta Política de Privacidade, entre em
               contato pelo e-mail:{" "}
-              <a href="mailto:contatomentoramed@gmail.com">
-                contatomentoramed@gmail.com
+              <a href="mailto:contato@mentoramed.com.br">
+                contato@mentoramed.com.br
               </a>
             </p>
           </div>

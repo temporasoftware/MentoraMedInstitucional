@@ -4,7 +4,7 @@ $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
 $company = $_REQUEST["companyname"];
 $msg   = $_REQUEST["message"];
-$to    = "contatomentoramed@gmail.com"; // ENTER YOUR EMAIL ADDRESS
+$to    = "contato@mentoramed.com.br"; // ENTER YOUR EMAIL ADDRESS
 if (isset($email) && isset($name) && isset($msg)) {
     $email_subject = "$name sent you a message via mentoramed.com.br"; // ENTER YOUR EMAIL SUBJECT
 	$headers = "MIME-Version: 1.0" . "\r\n";
