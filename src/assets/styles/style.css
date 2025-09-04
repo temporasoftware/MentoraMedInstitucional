@@ -7560,3 +7560,9 @@ img.footer-logo {
   display: flex;
   flex-direction: column;
 }
+
+#area-do-colaborador span {
+  background-color: var(--bruswick-green);
+  padding: 12px 20px;
+  border-radius: 26px;
+}
