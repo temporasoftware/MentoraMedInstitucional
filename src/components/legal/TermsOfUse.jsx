@@ -6,7 +6,7 @@ const TermsOfUse = () => (
           <div className="section-title title-01 mb-60">
             <h2 className="fs-48">Termos de Uso</h2>
             <p className="fs-18">
-              Última atualização: <span>03 de Setembro de 2025</span>
+              Última atualização: <span>03 de setembro de 2025</span>
             </p>
           </div>
         </div>

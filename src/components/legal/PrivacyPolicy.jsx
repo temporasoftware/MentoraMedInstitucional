@@ -9,7 +9,7 @@ const PrivacyPolicy = () => (
           <div className="section-title title-01 mb-60">
             <h2 className="fs-48">Política de Privacidade</h2>
             <p className="fs-18">
-              Última atualização: <span>03 de Setembro de 2025</span>
+              Última atualização: <span>03 de setembro de 2025</span>
             </p>
           </div>
         </div>
@@ -29,16 +29,18 @@ const PrivacyPolicy = () => (
               <span>1.</span> Informações Coletadas
             </h5>
             <p>Podemos coletar:</p>
-            <ul className="simple-list">
-              <li className="list-item">
-                Dados cadastrais (nome, e-mail, telefone, empresa).
-              </li>
-              <li className="list-item">Informações de uso do aplicativo.</li>
-              <li className="list-item">
-                Dados de saúde mental <strong>não sensíveis</strong>,
-                relacionados ao acompanhamento corporativo.
-              </li>
-            </ul>
+            <p>
+              <ul className="simple-list">
+                <li className="list-item">
+                  Dados cadastrais (nome, e-mail, telefone, empresa).
+                </li>
+                <li className="list-item">Informações de uso do aplicativo.</li>
+                <li className="list-item">
+                  Dados de saúde mental <strong>não sensíveis</strong>,
+                  relacionados ao acompanhamento corporativo.
+                </li>
+              </ul>
+            </p>
             <p>
               <strong>Obs.:</strong> Não coletamos dados médicos detalhados nem
               diagnósticos clínicos.

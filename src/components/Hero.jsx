@@ -1,9 +1,56 @@
 import { useState, useEffect } from "react";
-import slideImage1 from "../assets/images/app-image1.png";
-import slideImage2 from "../assets/images/team-image1.jpeg";
+import slideImage1 from "../assets/images/slide1.1.cropped.png";
+import slideImage2 from "../assets/images/slide2.2.cropped.png";
 import "./hero.css";
 
-const slides = [slideImage1, slideImage2];
+const slides = [
+  {
+    image: slideImage1,
+    title: (
+      <>
+        Consultas sem <b>Sair de Casa</b>
+      </>
+    ),
+    text: (
+      <>
+        Com a <b>MentodaMed</b>, você acessa consultas médicas online de forma
+        rápida, segura e prática.
+        <br />
+        <br />
+        Mais conforto, menos espera.
+      </>
+    ),
+    buttonText: "Fale com um Especialista",
+    buttonLink: "#contato",
+    titleColor: "#0A5046",
+    paragraphColor: "#000",
+    buttonClass: "btn btn-md r-08 btn--bruswick-green hover--tra-blue",
+    alignment: "left",
+    textMaxWidth: "600px", // max width for this slide text
+  },
+  {
+    image: slideImage2,
+    title: (
+      <>
+        Acompanhe seus <b>Resultados</b>
+      </>
+    ),
+    text: (
+      <>
+        Com o <b>MentoraMed</b>, ficou mais fácil marcar retornos, acompanhar
+        resultados de exames e manter um contato frequente com o médico,
+        garantindo um cuidado mais próximo e personalizado.
+      </>
+    ),
+    buttonText: "Fale com um Especialista",
+    buttonLink: "#contato",
+    titleColor: "#0A5046",
+    paragraphColor: "#000",
+    buttonClass: "btn btn-md r-08 btn--bruswick-green hover--tra-blue",
+    alignment: "right",
+    textMaxWidth: "600px",
+  },
+];
 
 const HeroSection = () => {
   const [index, setIndex] = useState(0);
@@ -15,47 +62,60 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const currentSlide = slides[index];
+
   return (
     <section id="sobre" className="hero-1 hero-section py-90">
       <div className="slideshow">
         <div className="slide-content division">
           <div className="container-xxl">
             <div className="row">
-              <div className="col-lg-8 col-xl-7">
-                <div className="caption color--white">
+              <div
+                className={`col-lg-8 col-xl-7 ${
+                  currentSlide.alignment === "right" ? "ms-auto text-end" : ""
+                }`}
+              >
+                <div
+                  className="caption"
+                  style={{
+                    alignItems:
+                      currentSlide.alignment === "right"
+                        ? "flex-end"
+                        : "flex-start",
+                  }}
+                >
                   <div className="title">
-                    <h2 className="wow animate__animated animate__fadeInRight">
-                      SUA EMPRESA EM CONFORMIDADE, SEU TIME COM SAÚDE
+                    <h2 style={{ color: currentSlide.titleColor }}>
+                      {currentSlide.title}
                     </h2>
                   </div>
-
-                  <div className="text wow animate__animated animate__fadeInRight d-flex">
-                    <div>
-                      <p className="fs-18">
-                        Impulsione sua equipe com nossa telepsicologia
-                        empresarial. Garantimos a conformidade com a NR-1,
-                        promovemos o bem estar mental dos seus colaboradores,
-                        garantindo menos faltas, mais engajamento e mais
-                        produtividade
-                      </p>
-                      <a
-                        href="#contato"
-                        className="btn btn-md r-08 btn--blue hover--tra-white"
-                      >
-                        Fale com um Especialista
-                      </a>
-                    </div>
+                  <div
+                    className="text"
+                    style={{
+                      color: currentSlide.paragraphColor,
+                      maxWidth: currentSlide.textMaxWidth || "100%",
+                    }}
+                  >
+                    <p className="fs-20">{currentSlide.text}</p>
+                    <a
+                      href={currentSlide.buttonLink}
+                      className={currentSlide.buttonClass}
+                    >
+                      {currentSlide.buttonText}
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Background image(s) with fade effect */}
         <div className="image-container">
           {slides.map((slide, i) => (
             <img
               key={i}
-              src={slide}
+              src={slide.image}
               alt="slide-background"
               className={i === index ? "active" : ""}
             />

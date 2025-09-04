@@ -1635,6 +1635,27 @@ ul.simple-list.long-list p {
 }
 
 /*------------------------------------------*/
+/*  BLUE bruswick-green
+/*------------------------------------------*/
+
+.btn--bruswick-green,
+.hover--blue:hover,
+.scroll .hover--blue:hover,
+.color--white .hover--blue:hover {
+  color: var(--white) !important;
+  border-color: var(--bruswick-green) !important;
+  background-color: var(--bruswick-green) !important;
+}
+
+.btn--tra-blue,
+.hover--tra-blue:hover,
+.color--white .btn--tra-blue {
+  color: var(--blue) !important;
+  background-color: transparent !important;
+  border-color: var(--blue) !important;
+}
+
+/*------------------------------------------*/
 /*  CANDY BUTTON
 /*------------------------------------------*/
 
@@ -7531,6 +7552,11 @@ img.footer-logo {
   color: var(--bruswick-green);
 }
 
-#header a {
-  margin: 0;
+.h-scroll-link {
+  margin: 0 !important;
+}
+
+#sobre .caption {
+  display: flex;
+  flex-direction: column;
 }
