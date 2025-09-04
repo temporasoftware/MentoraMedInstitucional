@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import slideImage1 from "../assets/images/slide1.1.cropped.png";
-import slideImage2 from "../assets/images/slide2.2.cropped.png";
+import slideImage1 from "../assets/images/slide1.0.cropped.webp";
+import slideImage2 from "../assets/images/slide2.0.cropped.webp";
 import "./hero.css";
 
 const slides = [
