@@ -12,12 +12,12 @@ const FooterBottom = () => (
         <ul className="bottom-footer-list ico-10 text-end clearfix">
           <li>
             <p className="fs-15">
-              <a href="#politica-de-privacidade">Política de Privacidade</a>
+              <a href="/politica-de-privacidade">Política de Privacidade</a>
             </p>
           </li>
           <li>
             <p className="fs-15">
-              <a href="#termos-de-uso">Termos de Uso</a>
+              <a href="/termos-de-uso">Termos de Uso</a>
             </p>
           </li>
         </ul>

@@ -9,8 +9,6 @@ import FAQSection from "../components/faq/FAQSection.jsx";
 import BenefitsSection from "../components/benefits/BenefitsSection.jsx";
 import FAQNR1Section from "../components/faqnr1/FAQNR1Section.jsx";
 import ContactSection from "../components/contact/ContactSection.jsx";
-import PrivacyPolicy from "../components/legal/PrivacyPolicy.jsx";
-import TermsOfUse from "../components/legal/TermsOfUse.jsx";
 import FooterSection from "../components/footer/FooterSection.jsx";
 
 function LandingPage() {
@@ -26,8 +24,6 @@ function LandingPage() {
       <BenefitsSection />
       <FAQNR1Section />
       <ContactSection />
-      <PrivacyPolicy />
-      <TermsOfUse />
     </div>
   );
 }
