@@ -778,6 +778,10 @@ section,
   background-color: var(--old-lace);
 }
 
+.bg--blue {
+  background-color: var(--old-lace);
+}
+
 .bg--candy {
   background-color: var(--candy);
 }
@@ -7176,7 +7180,15 @@ img.footer-logo {
 }
 
 #services-page.page-hero-section {
-  background-image: url(../images/services-page.jpg);
+  background-image: url(../images/service);
+}
+
+#services-hero {
+  background-image: url(../images/services-image01.jpeg);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /*------------------------------------------*/
@@ -7565,4 +7577,18 @@ img.footer-logo {
   background-color: var(--bruswick-green);
   padding: 12px 20px;
   border-radius: 26px;
+}
+
+.services-list li {
+  display: flex;
+  gap: 7px;
+}
+
+.services-list span {
+  margin-top: 4px;
+}
+
+#services-sidebar {
+  position: sticky;
+  top: 0;
 }
