@@ -7184,11 +7184,7 @@ img.footer-logo {
 }
 
 #services-hero {
-  background-image: url(../images/services-image01.jpeg);
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url(../images/services-image02.jpeg);
 }
 
 /*------------------------------------------*/
@@ -7589,6 +7585,7 @@ img.footer-logo {
 }
 
 #services-sidebar {
+  align-self: flex-start;
   position: sticky;
   top: 0;
 }

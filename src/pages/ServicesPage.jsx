@@ -3,11 +3,8 @@ const ServicesPage = () => (
     <section
       id="services-hero"
       className="pt-270 pb-140 bg--fixed page-hero-section division"
-    >
-      <div className="container-xxl text-center">
-        <div className="row justify-content-center py-120"></div>
-      </div>
-    </section>
+      style={{ padding: "400px 0", marginTop: "80px" }}
+    ></section>
 
     <section className="pt-120 pb-120 service-page-section division">
       <div className="container-xxl">
@@ -104,27 +101,25 @@ const ServicesPage = () => (
                 oferecendo:
               </p>
 
-              <p>
-                <ul className="services-list">
-                  <li>
-                    <span className="flaticon-check-2"></span>
-                    Avaliação psicossocial dos colaboradores;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>
-                    Relatórios completos que identificam fatores de risco;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Recomendações
-                    práticas para gestores e RH;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>
-                    Documentação que auxilia a reduzir riscos de passivos
-                    trabalhistas.
-                  </li>
-                </ul>
-              </p>
+              <ul className="services-list">
+                <li>
+                  <span className="flaticon-check-2"></span>
+                  Avaliação psicossocial dos colaboradores;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>
+                  Relatórios completos que identificam fatores de risco;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Recomendações
+                  práticas para gestores e RH;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>
+                  Documentação que auxilia a reduzir riscos de passivos
+                  trabalhistas.
+                </li>
+              </ul>
             </div>
 
             <hr id="consultoria" className="divisor py-60" />
@@ -142,27 +137,25 @@ const ServicesPage = () => (
 
               <p>Atuamos lado a lado com a liderança e o RH para:</p>
 
-              <p>
-                <ul className="services-list">
-                  <li>
-                    <span className="flaticon-check-2"></span>Desenvolver
-                    políticas de bem-estar alinhadas às necessidades da
-                    organização;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Reduzir
-                    afastamentos e absenteísmo;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Melhorar o clima
-                    organizacional e a produtividade;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Promover uma
-                    cultura de cuidado e respeito à saúde emocional.
-                  </li>
-                </ul>
-              </p>
+              <ul className="services-list">
+                <li>
+                  <span className="flaticon-check-2"></span>Desenvolver
+                  políticas de bem-estar alinhadas às necessidades da
+                  organização;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Reduzir afastamentos
+                  e absenteísmo;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Melhorar o clima
+                  organizacional e a produtividade;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Promover uma cultura
+                  de cuidado e respeito à saúde emocional.
+                </li>
+              </ul>
             </div>
 
             <hr id="treinamentos" className="divisor py-60" />
@@ -178,26 +171,24 @@ const ServicesPage = () => (
                 fundamentais, como:
               </p>
 
-              <p>
-                <ul className="services-list">
-                  <li>
-                    <span className="flaticon-check-2"></span>Inteligência
-                    emocional e resiliência;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Gestão de
-                    conflitos e comunicação assertiva;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Prevenção do
-                    estresse e do burnout;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Liderança
-                    humanizada e motivadora.
-                  </li>
-                </ul>
-              </p>
+              <ul className="services-list">
+                <li>
+                  <span className="flaticon-check-2"></span>Inteligência
+                  emocional e resiliência;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Gestão de conflitos
+                  e comunicação assertiva;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Prevenção do
+                  estresse e do burnout;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Liderança humanizada
+                  e motivadora.
+                </li>
+              </ul>
 
               <p>
                 Os treinamentos podem ser realizados de forma presencial ou
@@ -220,26 +211,24 @@ const ServicesPage = () => (
 
               <p>Com ela, sua empresa pode:</p>
 
-              <p>
-                <ul className="services-list">
-                  <li>
-                    <span className="flaticon-check-2"></span>Gerenciar
-                    atendimentos psicológicos de forma prática e segura;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Acompanhar
-                    indicadores de saúde mental dos colaboradores;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Emitir relatórios
-                    psicossociais conforme exigências legais;
-                  </li>
-                  <li>
-                    <span className="flaticon-check-2"></span>Centralizar
-                    treinamentos, avaliações e planos de ação em um só lugar.
-                  </li>
-                </ul>
-              </p>
+              <ul className="services-list">
+                <li>
+                  <span className="flaticon-check-2"></span>Gerenciar
+                  atendimentos psicológicos de forma prática e segura;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Acompanhar
+                  indicadores de saúde mental dos colaboradores;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Emitir relatórios
+                  psicossociais conforme exigências legais;
+                </li>
+                <li>
+                  <span className="flaticon-check-2"></span>Centralizar
+                  treinamentos, avaliações e planos de ação em um só lugar.
+                </li>
+              </ul>
 
               <p>
                 A plataforma foi desenvolvida pensando na simplicidade de uso e
